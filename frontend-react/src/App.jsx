@@ -7,6 +7,9 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Register from './components/Register'
 import Login from './components/Login'
 import AuthProvider from './AuthProvider'
+import Dashboard from './components/dashboard/Dashboard'
+import PrivateRoute from './PrivateRoute'
+import PublicRoot from './PublicRoot'
 
 
 function App() {
@@ -22,8 +25,11 @@ function App() {
             {/* / this path for  home page , in element give the home component , i named home component as main */}
             <Route path='/' element={<Main/>}/>
             {/* /register this path for  register page ,in element give the register component */}
-            <Route path='/register' element={<Register/>}/>
-            <Route path='/login' element={<Login/>}/>
+            <Route path='/register' element={<PublicRoot><Register/></PublicRoot>}/>
+            <Route path='/login' element={<PublicRoot><Login/></PublicRoot>}/>
+            
+            <Route path='/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
+           
           </Routes>
           {/* place Footer in between BrowseRouter and Routes */}
           <Footer/>

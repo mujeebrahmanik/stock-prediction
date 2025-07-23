@@ -141,3 +141,13 @@ REST_FRAMEWORK = {
     )
 
 }
+
+
+
+# settings.py
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(seconds=10),  # Access token expires in 5 minutes
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),    # Refresh token lasts 1 day
+}
